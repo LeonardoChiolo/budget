@@ -27,6 +27,6 @@ export const styles = StyleSheet.create({
     title: {
         color: COLORS.white,
         fontSize: 30,
-        fontWeight:'bold',
-    }
+        fontFamily:'Jost-Bold',
+    },
 });

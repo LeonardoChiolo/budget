@@ -1,6 +1,7 @@
 import { TouchableHighlight, Text, ImageBackground } from "react-native";
 
 import {styles} from "./styles";
+import { COLORS } from '../../../themes';
 
 
 const CategoryItem = ({ 
@@ -14,8 +15,8 @@ const CategoryItem = ({
         <TouchableHighlight 
         onPress = {() => onSelectCategory(id)}
         style={[styles.container, {backgroundColor:backgroundColor}]}
-         underlayColor = "#6D696A"
-        >
+         underlayColor = {COLORS.tertiary}>
+            
         <ImageBackground 
             source={{uri:backgroundImage}} 
             style = {styles.imageBackground} 

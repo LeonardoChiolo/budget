@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { COLORS } from '../../../themes';
+
 export const styles = StyleSheet.create({
     container: {
         shadowColor: "#000",
@@ -22,8 +24,8 @@ export const styles = StyleSheet.create({
     categoryName : {
         
         fontSize: 50,
-        fontWeight:'bold',
-        color: 'white',
+        fontFamily:'Jost-Bold',
+        color: COLORS.white,
         padding: 20,
         textShadowOffset:{ width: -2, height: 2},
         textShadowColor: 'rgba(0, 0, 0, 0.60)',
