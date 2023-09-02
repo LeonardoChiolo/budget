@@ -1,14 +1,9 @@
-import { useState } from 'react';
-import { SafeAreaView, StyleSheet, View, Text, Button, ActivityIndicator } from 'react-native';
+import { SafeAreaView, StyleSheet, View, ActivityIndicator } from 'react-native';
 import {useFonts} from 'expo-font';
-import { Header } from './components';
-import {Categories, Subcategory} from './screens';
-import { COLORS, FONTS } from './themes';
 
-const categoryDefault = {
-  categoryId: null,
-  color: COLORS.primary,
-};
+import { COLORS, FONTS } from './themes';
+import RootNavigator from './navigations';
+
 
 export default function App() {
   const [loaded] = useFonts ({
@@ -17,19 +12,7 @@ export default function App() {
     [FONTS.light] : require('../assets/fonts/Jost-Light.ttf'),
     [FONTS.medium] : require('../assets/fonts/Jost-Medium.ttf'),
   });
-  const [isCategorySelected, setIsCategorySelected] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(categoryDefault);
-
-  const headerTitle = isCategorySelected ? 'Subcategoria' : 'Categorias';
-
-  const onHandleSelectCategory = ({categoryId, color}) => {
-    setSelectedCategory({categoryId, color});
-    setIsCategorySelected(!isCategorySelected);
-  };
-  const onHandleNavigate = () => {
-    setIsCategorySelected(!isCategorySelected);
-    setSelectedCategory(categoryDefault);
-  };
+  
   if (!loaded) {
 
     return (
@@ -41,14 +24,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <Header title={headerTitle} style={{ bacgroundColor:selectedCategory.color}} />
-        {isCategorySelected ? (
-          <Subcategory onHandleGoBack={onHandleNavigate} categorySelected = {selectedCategory}  />
-        ) : (
-          <Categories onSelectCategory={onHandleSelectCategory} />
-        )}
-      </View>
+     <RootNavigator/>
     </SafeAreaView>
   );
 }

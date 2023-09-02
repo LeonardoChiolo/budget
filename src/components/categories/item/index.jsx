@@ -4,24 +4,25 @@ import {styles} from "./styles";
 import { COLORS } from '../../../themes';
 
 
-const CategoryItem = ({ 
+const CategoriasItem = ({ 
     id,
     name,
     backgroundColor,
     backgroundImage,
-    onSelectCategory
+    onSelectCategorias,
  }) => {
+   
     return (
         <TouchableHighlight 
-        onPress = {() => onSelectCategory(id)}
+        onPress = {() => onSelectCategorias(id)}
         style={[styles.container, {backgroundColor:backgroundColor}]}
          underlayColor = {COLORS.tertiary}>
             
         <ImageBackground 
             source={{uri:backgroundImage}} 
-            style = {styles.imageBackground} 
+            style = {[styles.imageBackground, styles]} 
             resizeMode="cover">
-            <Text style = {styles.categoryName}>{name}</Text>
+            <Text style = {styles.categoriasName}>{name}</Text>
             </ImageBackground>
         </TouchableHighlight>
         );
@@ -29,4 +30,4 @@ const CategoryItem = ({
 
  };
 
- export default CategoryItem;
+ export default CategoriasItem;
